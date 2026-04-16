@@ -71,10 +71,9 @@ img { max-width: 100%; display: block; }
 }
 
 .brand img {
-  height: 64px;
-  width: 64px;
+  height: 68px;
+  width: auto;
   object-fit: contain;
-  border-radius: 50%;
 }
 
 .brand strong {
