@@ -64,20 +64,17 @@ img { max-width: 100%; display: block; }
 }
 
 .brand {
-  display: block;
-  overflow: hidden;
-  border-radius: 50%;
-  width: 64px;
-  height: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
   flex-shrink: 0;
 }
 
 .brand img {
-  width: 160%;
-  height: 160%;
-  margin-left: -30%;
-  margin-top: -8%;
-  border-radius: 0;
+  height: 64px;
+  width: 64px;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 .brand strong {
