@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Soul Vibes</title>
+  <meta name="description" content="About Soul Vibes — yoga therapy, nervous system support, and wellness rooted in care, clarity, and accessibility." />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .bio-photo {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: rgba(91,115,95,0.18);
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .bio-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bio-photo-placeholder {
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .credentials-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .credentials-list li {
+      display: flex;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .credentials-list li::before {
+      content: "✦";
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .land-ack {
+      background: rgba(91,115,95,0.10);
+      border: 1px solid rgba(140,161,143,0.2);
+      border-radius: var(--radius);
+      padding: 2rem 2.5rem;
+      border-left: 3px solid var(--sage);
+    }
+
+    .land-ack p {
+      color: var(--muted);
+      font-size: 0.97rem;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    @media (max-width: 980px) {
+      .bio-grid { grid-template-columns: 1fr; }
+      .bio-photo { aspect-ratio: 4/3; max-width: 400px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <strong>Soul Vibes</strong>
+        <span>Yoga for the mind</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="main-nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="work-with-me.html">Work With Me</a>
+        <a class="nav-link active" href="about.html">About</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="btn btn-primary nav-cta" href="work-with-me.html#book">Book a Session</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" style="padding: 5rem 0 4rem;">
+      <div class="container hero-grid">
+        <div class="pill">&#10022; About Soul Vibes</div>
+        <h1>Rooted in care, clarity, and steadiness.</h1>
+        <p class="lead">Soul Vibes was built on the belief that everyone deserves support that feels human, accessible, and genuinely grounding — without pressure to perform or push.</p>
+      </div>
+    </section>
+
+    <!-- Bio section -->
+    <section>
+      <div class="container bio-grid">
+
+        <div class="bio-photo">
+          <!-- Replace src with your actual photo path -->
+          <!-- <img src="images/portrait.jpg" alt="[Your Name], Soul Vibes" /> -->
+          <div class="bio-photo-placeholder">
+            <p>Your photo<br/>goes here</p>
+            <p class="small" style="margin-top: 0.5rem;">Add to <code>images/portrait.jpg</code></p>
+          </div>
+        </div>
+
+        <div>
+          <!-- ── EDIT YOUR BIO BELOW ── -->
+          <h2>[Your Name]</h2>
+          <p class="muted" style="font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.5rem;">Yoga Therapist · [Your Credentials]</p>
+
+          <p class="muted">This is where your bio goes. Write in the first person and keep it warm and grounded. Talk about what brought you to yoga therapy, what you care about, and the kinds of people you love to work with.</p>
+
+          <p class="muted">You might share a little about your own relationship to stress, burnout, or the body — whatever feels honest and relevant to the people you serve. You don't have to share everything. Just what feels true.</p>
+
+          <p class="muted">A sentence or two about your training and credentials can sit here naturally, or you can use the list below.</p>
+
+          <h3 style="margin-top: 2rem;">Training &amp; Credentials</h3>
+          <ul class="credentials-list">
+            <li>[e.g. C-IAYT Certified Yoga Therapist, International Association of Yoga Therapists]</li>
+            <li>[e.g. 500-hour Yoga Teacher Training, School Name]</li>
+            <li>[e.g. Additional training or certificate]</li>
+            <li>[e.g. Additional training or certificate]</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Values / What Soul Vibes stands for -->
+    <div class="image-break" style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80');">
+      <div class="narrow center">
+        <h2>This is a space for all bodies, all nervous systems.</h2>
+      </div>
+    </div>
+
+    <section>
+      <div class="container three-col">
+        <div class="card">
+          <span class="pill">Accessible by design</span>
+          <p class="muted">The practice is always adapted to you — not the other way around. No experience, no particular body type, no baseline level of wellness is required to begin.</p>
+        </div>
+        <div class="card">
+          <span class="pill">Grounded in relationship</span>
+          <p class="muted">The therapeutic relationship matters. Sessions are conversational, slow enough to be real, and shaped by what is actually present — not a pre-determined script.</p>
+        </div>
+        <div class="card">
+          <span class="pill">Non-performative</span>
+          <p class="muted">This work is not about achieving or improving in a measurable way. It is about learning to listen, respond, and relate to yourself with more ease and less force.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Land Acknowledgment -->
+    <section class="tight">
+      <div class="container narrow">
+        <div class="land-ack">
+          <!-- ── EDIT LAND ACKNOWLEDGMENT BELOW ── -->
+          <p><strong style="color: var(--sage);">Land Acknowledgment</strong></p>
+          <p>Soul Vibes operates on the traditional, ancestral, and unceded territory of the [Nation Name] people. I am grateful to live and work on this land, and I recognize the ongoing relationships between Indigenous peoples and this territory. I am committed to learning and to the ongoing work of reconciliation.</p>
+          <!-- Update the Nation name and territory details to match your location -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="container narrow center">
+        <h2>Ready to explore working together?</h2>
+        <p class="muted">Sessions are available virtually and in-person. You are welcome to reach out with questions before booking — there is no pressure.</p>
+        <div class="button-row center" style="margin-top: 1.5rem;">
+          <a class="btn btn-primary" href="work-with-me.html">See offerings &amp; book</a>
+          <a class="btn btn-ghost" href="contact.html">Send a message first</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Soul Vibes</strong>
+        <div class="small muted">Yoga for the mind</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="work-with-me.html">Work With Me</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="small muted">&copy; 2026 Soul Vibes. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

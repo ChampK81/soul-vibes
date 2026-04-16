@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Soul Vibes</title>
+  <meta name="description" content="Get in touch with Soul Vibes — questions, workshop enquiries, or just to say hello." />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-form {
+      background: rgba(232, 221, 218, 0.07);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: var(--radius);
+      padding: 2.25rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(3px);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      font-size: 0.88rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.97rem;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: rgba(183,155,114,0.5);
+      background: rgba(0,0,0,0.35);
+    }
+
+    .form-group select option {
+      background: #211b1f;
+      color: var(--text);
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .form-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .info-block {
+      padding: 1.5rem;
+      background: rgba(91,115,95,0.10);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+    }
+
+    .info-block h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--soft);
+    }
+
+    .info-block p, .info-block a {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .info-block a:hover { color: var(--gold); }
+
+    /* Success / error states */
+    .form-success, .form-error {
+      display: none;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-top: 1rem;
+      font-size: 0.93rem;
+    }
+    .form-success { background: rgba(91,115,95,0.2); border: 1px solid var(--sage); color: var(--sage); }
+    .form-error   { background: rgba(180,80,80,0.15); border: 1px solid rgba(200,100,100,0.4); color: #e8a0a0; }
+
+    @media (max-width: 980px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <strong>Soul Vibes</strong>
+        <span>Yoga for the mind</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="main-nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="work-with-me.html">Work With Me</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link active" href="contact.html">Contact</a>
+        <a class="btn btn-primary nav-cta" href="work-with-me.html#book">Book a Session</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" style="padding: 5rem 0 4rem;">
+      <div class="container hero-grid">
+        <div class="pill">&#10022; Get in Touch</div>
+        <h1>Questions are welcome here.</h1>
+        <p class="lead">Whether you are curious about a specific offering, want to talk before booking, or are enquiring about a workshop for your team — feel free to reach out.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container contact-grid">
+
+        <!-- Left: info -->
+        <div class="contact-info">
+
+          <div class="info-block">
+            <h3>Before booking</h3>
+            <p>If you have questions about whether yoga therapy might be a good fit, or want to know more about the process, you are welcome to send a message. There is no commitment involved in reaching out.</p>
+          </div>
+
+          <div class="info-block">
+            <h3>Workshop &amp; talk enquiries</h3>
+            <p>For group bookings, workplace wellness sessions, or community events, use the form and select "Workshop / Talk Enquiry" — include any relevant details about your group or event.</p>
+          </div>
+
+          <div class="info-block">
+            <h3>Response time</h3>
+            <p>Messages are typically responded to within 1–2 business days. If you need a faster response, please note that in your message.</p>
+          </div>
+
+          <div class="info-block">
+            <h3>Ready to book directly?</h3>
+            <p><a href="work-with-me.html#book">Head to the booking page</a> to choose a session time. No message needed first — just come as you are.</p>
+          </div>
+
+        </div>
+
+        <!-- Right: form (Formspree) -->
+        <div class="contact-form">
+          <h2 style="font-size: 1.6rem; margin-bottom: 1.5rem;">Send a message</h2>
+
+          <!--
+            FORMSPREE SETUP:
+            1. Go to formspree.io and create a free account
+            2. Create a new form — it gives you a unique action URL
+            3. Replace YOUR_FORMSPREE_ID below with that ID (e.g. xpzgkwqr)
+            4. Submissions will go directly to your email
+          -->
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+            method="POST"
+          >
+            <div class="form-group">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="First and last name" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">What is this about?</label>
+              <select id="subject" name="subject">
+                <option value="">Choose one…</option>
+                <option value="1:1 Session">1:1 Yoga Therapy Session</option>
+                <option value="Workshop / Talk Enquiry">Workshop / Talk Enquiry</option>
+                <option value="General Question">General Question</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your message</label>
+              <textarea id="message" name="message" required placeholder="Say as little or as much as you like."></textarea>
+            </div>
+
+            <!-- Honeypot spam field — hidden from humans -->
+            <input type="text" name="_gotcha" style="display:none" />
+
+            <button type="submit" class="btn btn-primary form-submit">Send message</button>
+
+            <div class="form-success" id="form-success">
+              Thank you — your message has been sent. You will hear back within 1–2 business days.
+            </div>
+            <div class="form-error" id="form-error">
+              Something went wrong. Please try again, or email directly.
+            </div>
+
+            <p class="form-note">Your information is kept private and never shared.</p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Soul Vibes</strong>
+        <div class="small muted">Yoga for the mind</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="work-with-me.html">Work With Me</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="small muted">&copy; 2026 Soul Vibes. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Formspree AJAX submission for better UX
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    const error = document.getElementById('form-error');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' }
+          });
+
+          if (res.ok) {
+            form.reset();
+            success.style.display = 'block';
+            error.style.display = 'none';
+            btn.textContent = 'Sent!';
+          } else {
+            throw new Error('Server error');
+          }
+        } catch {
+          error.style.display = 'block';
+          success.style.display = 'none';
+          btn.textContent = 'Send message';
+          btn.disabled = false;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
