@@ -71,9 +71,10 @@ img { max-width: 100%; display: block; }
 }
 
 .brand img {
-  height: 56px;
-  width: auto;
-  filter: invert(1);
+  height: 72px;
+  width: 72px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .brand strong {
