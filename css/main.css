@@ -160,7 +160,7 @@ img { max-width: 100%; display: block; }
 
 .hero {
   padding: 7rem 0 6rem;
-  background-image: url('images/Home Background.jpeg');
+  background-image: url('../images/Home Background.jpeg');
 }
 
 .hero-grid {
