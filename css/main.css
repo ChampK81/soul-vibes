@@ -56,12 +56,12 @@ img { max-width: 100%; display: block; }
 }
 
 .header-inner {
-  min-height: 78px;
+  min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .brand {
@@ -72,8 +72,8 @@ img { max-width: 100%; display: block; }
 }
 
 .brand img {
-  height: 110px;
-  width: 110px;
+  height: 85px;
+  width: 85px;
   object-fit: contain;
   border-radius: 50%;
   background: white;
@@ -379,7 +379,7 @@ h3 { font-size: 1.22rem; }
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 78px;
+    top: 60px;
     left: 0;
     right: 0;
     background: rgba(18, 6, 24, 0.97);
