@@ -14,9 +14,13 @@ test('1:1 session card shows correct price', async ({ page }) => {
   await expect(page.locator('.offering-card').nth(0)).toContainText('60 mins');
 });
 
+test('workshop card shows sliding scale pricing', async ({ page }) => {
+  await expect(page.locator('.offering-card').nth(1)).toContainText('Sliding scale');
+});
+
 test('group offering card shows correct price', async ({ page }) => {
-  await expect(page.locator('.offering-card').nth(1)).toContainText('$45');
-  await expect(page.locator('.offering-card').nth(1)).toContainText('90 mins');
+  await expect(page.locator('.offering-card').nth(2)).toContainText('$45');
+  await expect(page.locator('.offering-card').nth(2)).toContainText('90 mins');
 });
 
 test('booking modal opens when Book a Session is clicked', async ({ page }) => {
