@@ -72,11 +72,11 @@ img { max-width: 100%; display: block; }
 }
 
 .brand img {
-  height: 80px;
-  width: 80px;
+  height: 88px;
+  width: 88px;
   object-fit: contain;
   border-radius: 50%;
-  padding: 6px;
+  padding: 4px;
   background: white;
   box-sizing: border-box;
 }
@@ -146,6 +146,7 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
 
 .hero::before {
@@ -170,7 +171,6 @@ img { max-width: 100%; display: block; }
 
 .hero {
   padding: 7rem 0 6rem;
-  background-image: url('../images/Home Background.jpeg');
 }
 
 .hero-grid {
