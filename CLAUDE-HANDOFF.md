@@ -117,7 +117,7 @@ All design tokens are CSS custom properties in `css/main.css`:
 |----------|-------|---------|
 | 1:1 Session | $75 / 60 min | Acuity modal |
 | Group Sessions | $45 / 90 min | Enquire via contact |
-| Burnout & The Body Workshop | $30–$50 sliding scale | Acuity modal |
+| Burnout & The Body Workshop | $40 | Acuity modal |
 | Stress & the Nervous System Talk | Free | External link (Airdrie Public Library) |
 
 ---

@@ -48,7 +48,7 @@ Walk me through it step by step as if I've never used Stripe before. I am not te
 5. Confirm your prices are set on each appointment type:
    - 1:1 Session → $75
    - Group Sessions → $45
-   - Burnout & The Body Workshop → $30–$50 (sliding scale)
+   - Burnout & The Body Workshop → $40
 
 **AI Prompt (paste into Claude or ChatGPT if stuck):**
 ```
