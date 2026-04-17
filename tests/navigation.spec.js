@@ -26,10 +26,11 @@ test('logo is visible on every page', async ({ page }) => {
 test('nav links are present on every page', async ({ page }) => {
   for (const { path } of pages) {
     await page.goto(path);
-    await expect(page.locator('nav a', { hasText: 'Home' })).toBeVisible();
-    await expect(page.locator('nav a', { hasText: 'Work With Me' })).toBeVisible();
-    await expect(page.locator('nav a', { hasText: 'About' })).toBeVisible();
-    await expect(page.locator('nav a', { hasText: 'Contact' })).toBeVisible();
+    // Use header nav specifically to avoid matching footer nav duplicates
+    await expect(page.locator('.site-header nav a', { hasText: 'Home' })).toBeVisible();
+    await expect(page.locator('.site-header nav a', { hasText: 'Work With Me' })).toBeVisible();
+    await expect(page.locator('.site-header nav a', { hasText: 'About' })).toBeVisible();
+    await expect(page.locator('.site-header nav a', { hasText: 'Contact' })).toBeVisible();
   }
 });
 
@@ -44,15 +45,15 @@ test('footer is present on every page', async ({ page }) => {
 
 test('nav links navigate correctly', async ({ page }) => {
   await page.goto('/');
-  await page.locator('nav a', { hasText: 'Work With Me' }).first().click();
+  await page.locator('.site-header nav a', { hasText: 'Work With Me' }).click();
   await expect(page).toHaveURL(/work-with-me/);
 
-  await page.locator('nav a', { hasText: 'About' }).first().click();
+  await page.locator('.site-header nav a', { hasText: 'About' }).click();
   await expect(page).toHaveURL(/about/);
 
-  await page.locator('nav a', { hasText: 'Contact' }).first().click();
+  await page.locator('.site-header nav a', { hasText: 'Contact' }).click();
   await expect(page).toHaveURL(/contact/);
 
-  await page.locator('nav a', { hasText: 'Home' }).first().click();
+  await page.locator('.site-header nav a', { hasText: 'Home' }).click();
   await expect(page).toHaveURL(/\/(index\.html)?$/);
 });

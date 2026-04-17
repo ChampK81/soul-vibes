@@ -10,11 +10,11 @@ test('hero heading is visible', async ({ page }) => {
 });
 
 test('hero CTA buttons are present and link correctly', async ({ page }) => {
-  const exploreBtn = page.locator('a.btn', { hasText: 'Explore ways to work together' });
+  const exploreBtn = page.locator('a.btn', { hasText: 'Explore ways to work together' }).first();
   await expect(exploreBtn).toBeVisible();
   await expect(exploreBtn).toHaveAttribute('href', /work-with-me/);
 
-  const aboutBtn = page.locator('a.btn', { hasText: 'About Soul Vibes' });
+  const aboutBtn = page.locator('a.btn', { hasText: 'About Soul Vibes' }).first();
   await expect(aboutBtn).toBeVisible();
 });
 

@@ -1,7 +1,7 @@
-const { test, expect, devices } = require('@playwright/test');
+const { test, expect } = require('@playwright/test');
 
-// Run these tests at mobile viewport
-test.use({ ...devices['iPhone 13'] });
+// iPhone 13 viewport using Chrome — avoids webkit dependency
+test.use({ viewport: { width: 390, height: 844 } });
 
 const pages = ['/', '/work-with-me.html', '/about.html', '/contact.html'];
 
