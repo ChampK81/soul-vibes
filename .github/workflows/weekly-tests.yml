@@ -1,11 +1,7 @@
 name: Weekly Site Tests
 
 on:
-  schedule:
-    - cron: '0 9 * * 1'   # Every Monday at 9am UTC
-  push:
-    branches: [main]
-  workflow_dispatch:       # Manual trigger from GitHub UI
+  workflow_dispatch:       # Manual trigger only — tests paused
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
