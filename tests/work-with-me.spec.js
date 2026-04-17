@@ -23,14 +23,18 @@ test('booking modal opens when Book a Session is clicked', async ({ page }) => {
   const modal = page.locator('#booking-modal');
   await expect(modal).not.toHaveClass(/open/);
 
-  await page.locator('[data-open-booking]').first().click();
+  const btn = page.locator('#book [data-open-booking]');
+  await btn.scrollIntoViewIfNeeded();
+  await btn.click();
 
   await expect(modal).toHaveClass(/open/);
   await expect(page.locator('#acuity-iframe')).toBeVisible();
 });
 
 test('booking modal closes with X button', async ({ page }) => {
-  await page.locator('[data-open-booking]').first().click();
+  const btn = page.locator('#book [data-open-booking]');
+  await btn.scrollIntoViewIfNeeded();
+  await btn.click();
   const modal = page.locator('#booking-modal');
   await expect(modal).toHaveClass(/open/);
 
@@ -39,7 +43,9 @@ test('booking modal closes with X button', async ({ page }) => {
 });
 
 test('booking modal closes with Escape key', async ({ page }) => {
-  await page.locator('[data-open-booking]').first().click();
+  const btn = page.locator('#book [data-open-booking]');
+  await btn.scrollIntoViewIfNeeded();
+  await btn.click();
   const modal = page.locator('#booking-modal');
   await expect(modal).toHaveClass(/open/);
 
@@ -48,7 +54,9 @@ test('booking modal closes with Escape key', async ({ page }) => {
 });
 
 test('booking modal closes by clicking backdrop', async ({ page }) => {
-  await page.locator('[data-open-booking]').first().click();
+  const btn = page.locator('#book [data-open-booking]');
+  await btn.scrollIntoViewIfNeeded();
+  await btn.click();
   const modal = page.locator('#booking-modal');
   await expect(modal).toHaveClass(/open/);
 
@@ -57,7 +65,9 @@ test('booking modal closes by clicking backdrop', async ({ page }) => {
 });
 
 test('Acuity iframe loads correct owner URL', async ({ page }) => {
-  await page.locator('[data-open-booking]').first().click();
+  const btn = page.locator('#book [data-open-booking]');
+  await btn.scrollIntoViewIfNeeded();
+  await btn.click();
   const iframe = page.locator('#acuity-iframe');
   await expect(iframe).toHaveAttribute('src', /39014675/);
 });
