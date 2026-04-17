@@ -1,10 +1,22 @@
 # Soul Vibes — Kayley's Setup To-Do List
 
-Complete these tasks **in order**. Do not cancel Squarespace until Tasks 1–3 are done.
+---
+
+## ✅ Already Done — No Action Needed
+
+- **Website** — 4 pages live at [soul-vibes.vercel.app](https://soul-vibes.vercel.app)
+- **Contact form** — live and delivering to kayley@soulvibes.ca (Formspree)
+- **Booking modal** — Acuity calendar embedded and working on Work With Me page
+- **Workshop events** — Burnout & The Body (May 9) and Stress & the Nervous System (June 4) listed
+- **Logo, images, content** — all pages complete with real photos and text
 
 ---
 
-## Task 1 — Complete Stripe Setup
+## ⚠️ Still To Do — Complete in Order
+
+---
+
+### Task 1 — Complete Stripe Setup
 
 **What:** Finish verifying your Stripe account so you can receive payments from clients.
 
@@ -24,9 +36,9 @@ Walk me through it step by step as if I've never used Stripe before. I am not te
 
 ---
 
-## Task 2 — Connect Stripe to Acuity
+### Task 2 — Connect Stripe to Acuity
 
-**What:** Switch Acuity's payment processor from Squarespace Payments to Stripe. This must happen before you cancel Squarespace or payments will stop working.
+**What:** Switch Acuity's payment processor from Squarespace Payments to Stripe. Do this before cancelling Squarespace or payments will stop working.
 
 **Steps:**
 1. Log into [acuityscheduling.com](https://acuityscheduling.com)
@@ -49,9 +61,9 @@ step by step. I am not technical.
 
 ---
 
-## Task 3 — Point soulvibes.ca to Your New Website
+### Task 3 — Point soulvibes.ca to Your New Website
 
-**What:** Right now soulvibes.ca still shows Squarespace. You need to update two DNS records so your domain points to your new Soul Vibes site on Vercel.
+**What:** Update your domain so soulvibes.ca shows your new site instead of Squarespace.
 
 **Step A — Update DNS records in Squarespace Domains:**
 1. Log into Squarespace → **Settings → Domains**
@@ -70,7 +82,7 @@ step by step. I am not technical.
 1. Go to [vercel.com](https://vercel.com) → log in → open the **soul-vibes** project
 2. Click **Settings → Domains → Add Domain**
 3. Type `soulvibes.ca` → click **Add**
-4. Vercel will verify and issue an SSL certificate automatically (can take up to 24 hours)
+4. Vercel verifies and issues SSL automatically (up to 24 hours)
 
 **AI Prompt (paste into Claude or ChatGPT if stuck):**
 ```
@@ -84,9 +96,9 @@ I am not technical.
 
 ---
 
-## Task 4 — Cancel Squarespace
+### Task 4 — Cancel Squarespace
 
-**What:** Cancel your Squarespace subscription. Do this LAST — only after Tasks 1–3 are complete and soulvibes.ca is showing your new site.
+**Do this LAST — only after Tasks 1–3 are complete and soulvibes.ca is showing your new site.**
 
 **Steps:**
 1. Log into Squarespace → **Settings → Billing**
@@ -105,23 +117,22 @@ I am not technical.
 
 ---
 
-## Task 5 — Test Everything
+### Task 5 — Test Everything
 
-**What:** Do a full run-through before announcing the new site to anyone.
+**What:** Full run-through before announcing the site.
 
-**Checklist:**
-- [ ] Visit **soulvibes.ca** in a browser — new site loads (not Squarespace)
+- [ ] Visit **soulvibes.ca** — new site loads (not Squarespace)
 - [ ] Click **Book a Session** — Acuity calendar opens in a popup
-- [ ] Make a test booking — payment screen appears (Stripe is connected)
+- [ ] Make a test booking — payment screen appears (Stripe connected)
 - [ ] Submit the **contact form** — email arrives at kayley@soulvibes.ca
-- [ ] Open the site on your **phone** — everything looks good on mobile
-- [ ] Click all nav links — Home, Work With Me, About, Contact all load correctly
+- [ ] Open on your **phone** — everything looks good on mobile
+- [ ] Click all nav links — Home, Work With Me, About, Contact all work
 
 ---
 
 ## Making Future Changes to the Website
 
-If you want to update text, add a new workshop, change pricing, or anything else on the site, you can do it yourself using AI.
+If you want to update text, add a new event, change pricing, or anything else:
 
 **AI Prompt to start any website change:**
 ```
@@ -136,4 +147,4 @@ I am not technical but I want to learn. Walk me through it step by step.
 
 ---
 
-*Last updated: April 2026 — built by Mocha (MochaS29)*
+*Last updated: April 16, 2026 — built by Mocha (MochaS29)*
