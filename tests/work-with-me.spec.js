@@ -62,10 +62,15 @@ test('Acuity iframe loads correct owner URL', async ({ page }) => {
   await expect(iframe).toHaveAttribute('src', /39014675/);
 });
 
-test('Workshop enquiry button links to contact page', async ({ page }) => {
-  const btn = page.locator('a.btn', { hasText: 'Enquire About Workshops' });
+test('Group enquiry button links to contact page', async ({ page }) => {
+  const btn = page.locator('a.btn', { hasText: 'Enquire About Group Sessions' });
   await expect(btn).toBeVisible();
   await expect(btn).toHaveAttribute('href', /contact/);
+});
+
+test('Workshop book button opens booking modal', async ({ page }) => {
+  const btn = page.locator('button[data-open-booking]', { hasText: 'Book a Workshop' });
+  await expect(btn).toBeVisible();
 });
 
 test('What is Yoga Therapy section is visible', async ({ page }) => {
