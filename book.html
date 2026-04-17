@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Session | Soul Vibes</title>
+  <meta name="description" content="Book a 1:1 yoga therapy session or register for a workshop with Kayley Champagne at Soul Vibes." />
+  <link rel="icon" type="image/png" href="images/logo-final.png" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .booking-page {
+      padding: 3rem 0 5rem;
+    }
+    .booking-intro {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+    .acuity-embed-wrap {
+      background: rgba(232,221,218,0.04);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      min-height: 700px;
+    }
+    .acuity-embed-wrap iframe {
+      width: 100%;
+      min-height: 700px;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo-final.png" alt="Soul Vibes — Yoga for the Mind" />
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="main-nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="work-with-me.html">Work With Me</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="btn btn-primary nav-cta active" href="book.html">Book a Session</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="booking-page">
+      <div class="container">
+        <div class="booking-intro">
+          <div class="pill" style="display: inline-block; margin-bottom: 1rem;">&#10022; Schedule</div>
+          <h1 style="font-size: 2rem; margin-bottom: 0.75rem;">Book a session</h1>
+          <p class="muted">Choose a time that works for you. All sessions include a short intake so the work can be shaped to where you are.</p>
+        </div>
+        <div class="acuity-embed-wrap">
+          <iframe src="https://app.acuityscheduling.com/schedule.php?owner=39014675" title="Schedule Appointment" frameborder="0" scrolling="yes"></iframe>
+        </div>
+        <p class="small muted" style="text-align: center; margin-top: 1.25rem;">Sessions available virtually and in-person &middot; Questions? <a href="contact.html" style="color: var(--gold);">Send a message</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Soul Vibes</strong>
+        <div class="small muted">Yoga for the mind</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="work-with-me.html">Work With Me</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="small muted"><a href="mailto:kayley@soulvibes.ca" style="color:var(--muted);margin-right:1rem;">kayley@soulvibes.ca</a><a href="https://instagram.com/kc.soulvibes" target="_blank" rel="noopener" style="color:var(--muted);">@kc.soulvibes</a></div>
+      <div class="small muted">&copy; 2026 Soul Vibes. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
+</body>
+</html>
