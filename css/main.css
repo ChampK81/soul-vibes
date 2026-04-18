@@ -232,8 +232,8 @@ h1, h2, h3 { line-height: 1.14; margin: 0 0 1rem; }
 
 h1 {
   font-family: Georgia, serif;
-  font-size: clamp(2.8rem, 5vw, 5rem);
-  max-width: 16ch;
+  font-size: clamp(2rem, 3.6vw, 3.4rem);
+  max-width: 18ch;
   margin-left: auto;
   margin-right: auto;
 }
@@ -339,32 +339,35 @@ h3 { font-size: 1.22rem; }
 /* ── Footer ── */
 .site-footer {
   border-top: 1px solid var(--line);
-  padding: 2rem 0 3rem;
+  padding: 0.9rem 0;
   color: var(--muted);
   margin-top: 2rem;
 }
 
 .footer-inner {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
+  font-size: 0.88rem;
 }
 
-.footer-nav {
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-}
-
-.footer-nav a {
+.footer-inner a {
   color: var(--muted);
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   transition: color 0.2s;
 }
 
-.footer-nav a:hover { color: var(--text); }
+.footer-inner a:hover { color: var(--text); }
+
+.footer-inner svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
 
 /* ── Responsive ── */
 @media (max-width: 980px) {

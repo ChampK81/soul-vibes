@@ -13,25 +13,20 @@
   <meta property="og:url" content="https://soulvibes.ca/contact.html" />
   <link rel="stylesheet" href="css/main.css" />
   <style>
-    body {
-      background-image:
-        linear-gradient(180deg, rgba(38,20,58,0.2) 0%, rgba(38,20,58,0.55) 100%),
-        url('images/Contact Me Header Image.jpeg');
-      background-size: 100% auto;
-      background-position: center top;
-      background-repeat: repeat-y;
-    }
     .hero {
       background-image:
-        linear-gradient(180deg, rgba(38,20,58,0.0) 0%, rgba(38,20,58,0.0) 50%, rgba(38,20,58,0.4) 100%);
+        linear-gradient(180deg, rgba(38,20,58,0.0) 0%, rgba(38,20,58,0.0) 50%, rgba(38,20,58,0.55) 100%),
+        url('images/Contact Me Header Image.jpeg');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
       padding: 3rem 0 5rem;
-      min-height: 75vh;
+      min-height: 50vh;
     }
     .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 3rem;
-      align-items: start;
+      display: block;
+      max-width: 640px;
+      margin: 0 auto;
     }
 
     .contact-form {
@@ -138,9 +133,6 @@
     .form-success { background: rgba(91,115,95,0.2); border: 1px solid var(--sage); color: var(--sage); }
     .form-error   { background: rgba(180,80,80,0.15); border: 1px solid rgba(200,100,100,0.4); color: #e8a0a0; }
 
-    @media (max-width: 980px) {
-      .contact-grid { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 <body>
@@ -168,7 +160,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="pill">&#10022; Get in Touch</div>
-        <h1>Questions are welcome here.</h1>
+        <h1>Let&rsquo;s Connect.</h1>
         <p class="lead">Whether you are curious about a specific offering, want to talk before booking, or are enquiring about a workshop for your team — feel free to reach out.</p>
       </div>
     </section>
@@ -176,42 +168,7 @@
     <section>
       <div class="container contact-grid">
 
-        <!-- Left: info -->
-        <div class="contact-info">
-
-          <div class="info-block">
-            <h3>Before booking</h3>
-            <p>If you have questions about whether yoga therapy might be a good fit, or want to know more about the process, you are welcome to send a message. There is no commitment involved in reaching out.</p>
-          </div>
-
-          <div class="info-block">
-            <h3>Workshop &amp; talk enquiries</h3>
-            <p>For group bookings, workplace wellness sessions, or community events, use the form and select "Workshop / Talk Enquiry" — include any relevant details about your group or event.</p>
-          </div>
-
-          <div class="info-block">
-            <h3>Email</h3>
-            <p><a href="mailto:kayley@soulvibes.ca">kayley@soulvibes.ca</a></p>
-          </div>
-
-          <div class="info-block">
-            <h3>Instagram</h3>
-            <p><a href="https://instagram.com/kc.soulvibes" target="_blank" rel="noopener">@kc.soulvibes</a></p>
-          </div>
-
-          <div class="info-block">
-            <h3>Response time</h3>
-            <p>Messages are typically responded to within 1–2 business days. If you need a faster response, please note that in your message.</p>
-          </div>
-
-          <div class="info-block">
-            <h3>Ready to book directly?</h3>
-            <p><a href="book.html">Head to the booking page</a> to choose a session time. No message needed first — just come as you are.</p>
-          </div>
-
-        </div>
-
-        <!-- Right: form (Formspree) -->
+        <!-- Form (Formspree) -->
         <div class="contact-form">
           <h2 style="font-size: 1.6rem; margin-bottom: 1.5rem;">Send a message</h2>
 
@@ -238,7 +195,7 @@
             </div>
 
             <div class="form-group">
-              <label for="subject">What is this about?</label>
+              <label for="subject">Related Topic</label>
               <select id="subject" name="subject">
                 <option value="">Choose one…</option>
                 <option value="1:1 Session">1:1 Yoga Therapy Session</option>
@@ -276,18 +233,15 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>
-        <strong>Soul Vibes</strong>
-        <div class="small muted">Yoga for the mind</div>
-      </div>
-      <nav class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="work-with-me.html">Work With Me</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="small muted"><a href="mailto:kayley@soulvibes.ca" style="color:var(--muted);margin-right:1rem;">kayley@soulvibes.ca</a><a href="https://instagram.com/kc.soulvibes" target="_blank" rel="noopener" style="color:var(--muted);">@kc.soulvibes</a></div>
-      <div class="small muted">&copy; 2026 Soul Vibes. All rights reserved.</div>
+      <a href="mailto:kayley@soulvibes.ca">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        kayley@soulvibes.ca
+      </a>
+      <a href="https://instagram.com/kc.soulvibes" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        @kc.soulvibes
+      </a>
+      <span>&copy; 2026 Soul Vibes</span>
     </div>
   </footer>
 
