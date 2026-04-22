@@ -342,6 +342,8 @@ h3 { font-size: 1.22rem; }
   padding: 0.9rem 0;
   color: var(--muted);
   margin-top: 2rem;
+  background: rgba(18, 6, 24, 0.85);
+  backdrop-filter: blur(8px);
 }
 
 .footer-inner {
