@@ -61,37 +61,52 @@ step by step. I am not technical.
 
 ---
 
-### Task 3 — Point soulvibes.ca to Your New Website
+### Task 3 — Point soulvibes.ca to Your New Website (Tucows DNS)
 
-**What:** Update your domain so soulvibes.ca shows your new site instead of Squarespace.
+**What:** Update your domain's DNS at Tucows so `soulvibes.ca` loads your new Vercel site.
 
-**Step A — Update DNS records in Squarespace Domains:**
-1. Log into Squarespace → **Settings → Domains**
-2. Click **soulvibes.ca** → **DNS Settings**
-3. Delete any existing **A records** for `@`
-4. Add these two new records:
+**⚠️ Before you touch anything — protect your email:**
+If `kayley@soulvibes.ca` is routed through Tucows, there will be **MX records** in the DNS list. **Do not delete those** — they keep your email working. You only need to change the `A` and `CNAME` records for `@` and `www`. If you are unsure what's in there, screenshot the current DNS table and send it to Mocha first.
 
-| Type  | Name | Value                  |
-|-------|------|------------------------|
-| A     | @    | 76.76.21.21            |
-| CNAME | www  | cname.vercel-dns.com   |
+**Step A — Update DNS records at Tucows:**
+1. Log into your Tucows domain control panel (or Hover, if that's how you access it)
+2. Open **soulvibes.ca** → **DNS** (or **DNS Settings**)
+3. Find and **delete** any existing records of these types:
+   - `A` record with host `@` (the apex / root domain)
+   - `AAAA` record with host `@` (if present)
+   - `CNAME` record with host `www`
+4. Add these **two new records**:
 
-5. Save
+| Type  | Host / Name | Target / Value          | TTL  |
+|-------|-------------|-------------------------|------|
+| A     | `@`         | `76.76.21.21`           | 1 hr |
+| CNAME | `www`       | `cname.vercel-dns.com`  | 1 hr |
 
-**Step B — Add domain in Vercel:**
+5. Leave all **MX records** (email) untouched.
+6. Save. Propagation is usually 15 minutes to 1 hour (can take up to 24 hours).
+
+**Step B — Add the domain in Vercel:**
 1. Go to [vercel.com](https://vercel.com) → log in → open the **soul-vibes** project
 2. Click **Settings → Domains → Add Domain**
-3. Type `soulvibes.ca` → click **Add**
-4. Vercel verifies and issues SSL automatically (up to 24 hours)
+3. Add `soulvibes.ca` → click **Add**
+4. Add `www.soulvibes.ca` too — Vercel will auto-configure it to redirect to the apex
+5. Vercel verifies DNS and issues the SSL certificate (green padlock) within a few minutes of propagation
+
+**How to check it worked:**
+- Visit `https://soulvibes.ca` — you should see the new Soul Vibes site
+- Visit `https://www.soulvibes.ca` — should redirect to `https://soulvibes.ca`
+- Send yourself a test email at `kayley@soulvibes.ca` to confirm email still works
 
 **AI Prompt (paste into Claude or ChatGPT if stuck):**
 ```
-I have a domain called soulvibes.ca that I manage through Squarespace Domains.
-I need to point it to my Vercel website instead of Squarespace.
-I need to add an A record pointing @ to 76.76.21.21
-and a CNAME record pointing www to cname.vercel-dns.com.
-Walk me through finding the DNS settings in Squarespace and adding these records step by step.
-I am not technical.
+I have a domain called soulvibes.ca registered through Tucows.
+I need to point it to my Vercel website.
+I need to:
+- Add an A record with host @ pointing to 76.76.21.21
+- Add a CNAME record with host www pointing to cname.vercel-dns.com
+- Leave all MX records (email) untouched
+Walk me through finding the DNS settings in the Tucows control panel and adding
+these records step by step. I am not technical.
 ```
 
 ---
@@ -147,4 +162,4 @@ I am not technical but I want to learn. Walk me through it step by step.
 
 ---
 
-*Last updated: April 16, 2026 — built by Mocha (MochaS29)*
+*Last updated: April 23, 2026 — built by Mocha (MochaS29)*
