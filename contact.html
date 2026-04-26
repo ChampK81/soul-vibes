@@ -133,6 +133,90 @@
     .form-success { background: rgba(91,115,95,0.2); border: 1px solid var(--sage); color: var(--sage); }
     .form-error   { background: rgba(180,80,80,0.15); border: 1px solid rgba(200,100,100,0.4); color: #e8a0a0; }
 
+    /* Newsletter opt-in checkbox (inside contact form) */
+    .checkbox-group {
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+      margin: 0.5rem 0 1.25rem;
+      padding: 1rem;
+      background: rgba(91,115,95,0.08);
+      border: 1px solid rgba(140,161,143,0.18);
+      border-radius: 12px;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+    .checkbox-group label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      cursor: pointer;
+    }
+
+    /* Newsletter form fields inside tabbed card */
+    .newsletter-form .form-group { margin-bottom: 1rem; }
+    .newsletter-form .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    @media (max-width: 600px) {
+      .newsletter-form .row { grid-template-columns: 1fr; }
+    }
+
+    /* Tabs at top of combined contact card */
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .tab-btn {
+      flex: 1;
+      background: none;
+      border: none;
+      padding: 0.85rem 1rem;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 0.97rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .tab-btn:hover {
+      color: var(--text);
+    }
+    .tab-btn.active {
+      color: var(--text);
+      border-bottom-color: var(--gold);
+    }
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+    .tab-panel .intro {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .casl-note {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 1rem;
+      text-align: center;
+      line-height: 1.55;
+    }
   </style>
 </head>
 <body>
@@ -168,62 +252,103 @@
     <section>
       <div class="container contact-grid">
 
-        <!-- Form (Formspree) -->
+        <!-- Combined Contact + Newsletter card with tabs -->
         <div class="contact-form">
-          <h2 style="font-size: 1.6rem; margin-bottom: 1.5rem;">Send a message</h2>
 
-          <!--
-            FORMSPREE SETUP:
-            1. Go to formspree.io and create a free account
-            2. Create a new form — it gives you a unique action URL
-            3. Replace xvzdkwdw below with that ID (e.g. xpzgkwqr)
-            4. Submissions will go directly to your email
-          -->
-          <form
-            id="contact-form"
-            action="https://formspree.io/f/xvzdkwdw"
-            method="POST"
-          >
-            <div class="form-group">
-              <label for="name">Your name</label>
-              <input type="text" id="name" name="name" required autocomplete="name" placeholder="First and last name" />
-            </div>
+          <div class="tabs" role="tablist">
+            <button type="button" class="tab-btn active" id="tab-message-btn" role="tab" aria-selected="true" aria-controls="tab-message" data-target="tab-message">Send a message</button>
+            <button type="button" class="tab-btn" id="tab-newsletter-btn" role="tab" aria-selected="false" aria-controls="tab-newsletter" data-target="tab-newsletter">Stay in touch</button>
+          </div>
 
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" />
-            </div>
+          <!-- TAB 1: Send a message (Formspree) -->
+          <div class="tab-panel active" id="tab-message" role="tabpanel" aria-labelledby="tab-message-btn">
+            <p class="intro">Whether you have a question about an offering or just want to talk before booking, send a note and you'll hear back within 1–2 business days.</p>
 
-            <div class="form-group">
-              <label for="subject">Related Topic</label>
-              <select id="subject" name="subject">
-                <option value="">Choose one…</option>
-                <option value="1:1 Session">1:1 Yoga Therapy Session</option>
-                <option value="Workshop / Talk Enquiry">Workshop / Talk Enquiry</option>
-                <option value="General Question">General Question</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
+            <form
+              id="contact-form"
+              action="https://formspree.io/f/xvzdkwdw"
+              method="POST"
+            >
+              <div class="form-group">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" required autocomplete="name" placeholder="First and last name" />
+              </div>
 
-            <div class="form-group">
-              <label for="message">Your message</label>
-              <textarea id="message" name="message" required placeholder="Say as little or as much as you like."></textarea>
-            </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+              </div>
 
-            <!-- Honeypot spam field — hidden from humans -->
-            <input type="text" name="_gotcha" style="display:none" />
+              <div class="form-group">
+                <label for="subject">Related Topic</label>
+                <select id="subject" name="subject">
+                  <option value="">Choose one…</option>
+                  <option value="1:1 Session">1:1 Yoga Therapy Session</option>
+                  <option value="Workshop / Talk Enquiry">Workshop / Talk Enquiry</option>
+                  <option value="General Question">General Question</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
 
-            <button type="submit" class="btn btn-primary form-submit">Send message</button>
+              <div class="form-group">
+                <label for="message">Your message</label>
+                <textarea id="message" name="message" required placeholder="Say as little or as much as you like."></textarea>
+              </div>
 
-            <div class="form-success" id="form-success">
-              Thank you — your message has been sent. You will hear back within 1–2 business days.
-            </div>
-            <div class="form-error" id="form-error">
-              Something went wrong. Please try again, or email directly.
-            </div>
+              <!-- Newsletter opt-in (CASL: must be unchecked by default) -->
+              <div class="checkbox-group">
+                <input type="checkbox" id="newsletter_optin" name="newsletter_optin" value="yes" />
+                <label for="newsletter_optin">Yes, please also add me to the Soul Vibes email list — occasional updates on workshops, events, and offerings. You can unsubscribe at any time.</label>
+              </div>
 
-            <p class="form-note">Your information is kept private and never shared.</p>
-          </form>
+              <!-- Honeypot spam field — hidden from humans -->
+              <input type="text" name="_gotcha" style="display:none" />
+
+              <button type="submit" class="btn btn-primary form-submit">Send message</button>
+
+              <div class="form-success" id="form-success">
+                Thank you — your message has been sent. You will hear back within 1–2 business days.
+              </div>
+              <div class="form-error" id="form-error">
+                Something went wrong. Please try again, or email directly.
+              </div>
+
+              <p class="form-note">Your information is kept private and never shared.</p>
+            </form>
+          </div>
+
+          <!-- TAB 2: Stay in touch (MailerLite, custom HTML) -->
+          <div class="tab-panel" id="tab-newsletter" role="tabpanel" aria-labelledby="tab-newsletter-btn">
+            <p class="intro">Receive occasional notes from Soul Vibes — upcoming workshops, new offerings, and gentle reflections on nervous system care. No spam, unsubscribe at any time.</p>
+
+            <form id="newsletter-custom" class="newsletter-form" novalidate>
+              <div class="row">
+                <div class="form-group">
+                  <label for="nl-name">First name</label>
+                  <input type="text" id="nl-name" name="fields[name]" required autocomplete="given-name" placeholder="Your first name" />
+                </div>
+                <div class="form-group">
+                  <label for="nl-email">Email address</label>
+                  <input type="email" id="nl-email" name="fields[email]" required autocomplete="email" placeholder="you@example.com" />
+                </div>
+              </div>
+
+              <input type="hidden" name="ml-submit" value="1" />
+              <input type="hidden" name="anticsrf" value="true" />
+
+              <button type="submit" class="btn btn-primary form-submit">Subscribe</button>
+
+              <div class="form-success" id="nl-success">
+                Thank you — please check your inbox to confirm your subscription.
+              </div>
+              <div class="form-error" id="nl-error">
+                Something went wrong. Please try again, or email kayley@soulvibes.ca directly.
+              </div>
+            </form>
+
+            <p class="casl-note">By subscribing you consent to receive emails from Soul Vibes. You can unsubscribe at any time.</p>
+          </div>
+
         </div>
 
       </div>
@@ -247,6 +372,56 @@
 
   <script src="js/main.js"></script>
   <script>
+    // Tab switching for combined contact card
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          const isActive = b === btn;
+          b.classList.toggle('active', isActive);
+          b.setAttribute('aria-selected', isActive);
+        });
+        document.querySelectorAll('.tab-panel').forEach(p => {
+          p.classList.toggle('active', p.id === targetId);
+        });
+      });
+    });
+
+    // Newsletter form posts directly to MailerLite via no-cors fetch.
+    // Opaque response means we can't read success/failure; assume success
+    // unless a network error throws. Account/Form IDs are public-safe.
+    const nlForm = document.getElementById('newsletter-custom');
+    const nlSuccess = document.getElementById('nl-success');
+    const nlError = document.getElementById('nl-error');
+    const ML_ACCOUNT_ID = '2105320';
+    const ML_FORM_ID = 'NQkuM4';
+
+    if (nlForm) {
+      nlForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = nlForm.querySelector('button[type="submit"]');
+        btn.textContent = 'Subscribing…';
+        btn.disabled = true;
+        nlSuccess.style.display = 'none';
+        nlError.style.display = 'none';
+
+        try {
+          await fetch(`https://assets.mailerlite.com/jsonp/${ML_ACCOUNT_ID}/forms/${ML_FORM_ID}/subscribe`, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: new FormData(nlForm)
+          });
+          nlForm.reset();
+          nlSuccess.style.display = 'block';
+          btn.textContent = 'Subscribed!';
+        } catch {
+          nlError.style.display = 'block';
+          btn.textContent = 'Subscribe';
+          btn.disabled = false;
+        }
+      });
+    }
+
     // Formspree AJAX submission for better UX
     const form = document.getElementById('contact-form');
     const success = document.getElementById('form-success');
@@ -258,6 +433,26 @@
         const btn = form.querySelector('button[type="submit"]');
         btn.textContent = 'Sending…';
         btn.disabled = true;
+
+        // If the newsletter opt-in is checked, also POST to MailerLite in
+        // parallel. Fire-and-forget — uses no-cors (opaque response), so we
+        // can't read the result. CASL: this only runs if the user explicitly
+        // ticked the checkbox.
+        const optinChecked = form.querySelector('#newsletter_optin')?.checked;
+        if (optinChecked) {
+          const nameVal = form.querySelector('#name')?.value || '';
+          const emailVal = form.querySelector('#email')?.value || '';
+          const mlBody = new FormData();
+          mlBody.append('fields[email]', emailVal);
+          mlBody.append('fields[name]', nameVal);
+          mlBody.append('ml-submit', '1');
+          mlBody.append('anticsrf', 'true');
+          fetch(`https://assets.mailerlite.com/jsonp/${ML_ACCOUNT_ID}/forms/${ML_FORM_ID}/subscribe`, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: mlBody
+          }).catch(() => {}); // silent — Formspree submission is the source of truth for UX
+        }
 
         try {
           const res = await fetch(form.action, {
