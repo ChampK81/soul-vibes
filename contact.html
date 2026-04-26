@@ -159,60 +159,63 @@
       cursor: pointer;
     }
 
-    /* Newsletter signup card (dedicated) */
-    .newsletter-card {
-      max-width: 640px;
-      margin: 3rem auto 0;
-      background: rgba(20,10,30,0.72);
-      border: 1px solid rgba(255,255,255,0.13);
-      border-radius: var(--radius);
-      padding: 2.25rem;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(6px);
-      border-left: 3px solid var(--gold);
-    }
-    .newsletter-card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .newsletter-card .lead-small {
-      color: var(--muted);
-      font-size: 0.97rem;
-      margin-bottom: 1.5rem;
-    }
-    .newsletter-card .casl-note {
-      color: var(--muted);
-      font-size: 0.78rem;
-      margin-top: 1rem;
-      text-align: center;
-      line-height: 1.55;
-    }
-    /* Style overrides for embedded MailerLite form (so it blends in) */
-    .ml-embedded {
-      background: transparent !important;
-    }
-
-    /* Custom newsletter form (Option A) */
-    .custom-newsletter-form .form-group { margin-bottom: 1rem; }
-    .custom-newsletter-form .row {
+    /* Newsletter form fields inside tabbed card */
+    .newsletter-form .form-group { margin-bottom: 1rem; }
+    .newsletter-form .row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.75rem;
     }
     @media (max-width: 600px) {
-      .custom-newsletter-form .row { grid-template-columns: 1fr; }
+      .newsletter-form .row { grid-template-columns: 1fr; }
     }
-    .compare-label {
-      display: inline-block;
-      background: rgba(183,155,114,0.18);
-      color: var(--gold);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(183,155,114,0.35);
-      margin-bottom: 1rem;
+
+    /* Tabs at top of combined contact card */
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .tab-btn {
+      flex: 1;
+      background: none;
+      border: none;
+      padding: 0.85rem 1rem;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 0.97rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .tab-btn:hover {
+      color: var(--text);
+    }
+    .tab-btn.active {
+      color: var(--text);
+      border-bottom-color: var(--gold);
+    }
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+    .tab-panel .intro {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .casl-note {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 1rem;
+      text-align: center;
+      line-height: 1.55;
     }
   </style>
 </head>
@@ -249,135 +252,103 @@
     <section>
       <div class="container contact-grid">
 
-        <!--
-          ============================================================
-          PREVIEW / COMPARISON — pick one before merging to main
-          ============================================================
-          Two versions of the newsletter signup are shown below so you
-          can see the visual difference. Delete the one we don't pick
-          before merging this branch.
-        -->
+        <!-- Combined Contact + Newsletter card with tabs -->
+        <div class="contact-form">
 
-        <!-- ============================================================ -->
-        <!-- OPTION A — Custom HTML form (matches site styling)            -->
-        <!-- ============================================================ -->
-        <div class="newsletter-card">
-          <span class="compare-label">Option A · Custom HTML</span>
-          <h2>Stay in touch</h2>
-          <p class="lead-small">Receive occasional notes from Soul Vibes — upcoming workshops, new offerings, and gentle reflections on nervous system care. No spam, unsubscribe at any time.</p>
+          <div class="tabs" role="tablist">
+            <button type="button" class="tab-btn active" id="tab-message-btn" role="tab" aria-selected="true" aria-controls="tab-message" data-target="tab-message">Send a message</button>
+            <button type="button" class="tab-btn" id="tab-newsletter-btn" role="tab" aria-selected="false" aria-controls="tab-newsletter" data-target="tab-newsletter">Stay in touch</button>
+          </div>
 
-          <form id="newsletter-custom" class="custom-newsletter-form" novalidate>
-            <div class="row">
+          <!-- TAB 1: Send a message (Formspree) -->
+          <div class="tab-panel active" id="tab-message" role="tabpanel" aria-labelledby="tab-message-btn">
+            <p class="intro">Whether you have a question about an offering or just want to talk before booking, send a note and you'll hear back within 1–2 business days.</p>
+
+            <form
+              id="contact-form"
+              action="https://formspree.io/f/xvzdkwdw"
+              method="POST"
+            >
               <div class="form-group">
-                <label for="nl-name">First name</label>
-                <input type="text" id="nl-name" name="fields[name]" required autocomplete="given-name" placeholder="Your first name" />
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" required autocomplete="name" placeholder="First and last name" />
               </div>
+
               <div class="form-group">
-                <label for="nl-email">Email address</label>
-                <input type="email" id="nl-email" name="fields[email]" required autocomplete="email" placeholder="you@example.com" />
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" />
               </div>
-            </div>
 
-            <!-- MailerLite required fields -->
-            <input type="hidden" name="ml-submit" value="1" />
-            <input type="hidden" name="anticsrf" value="true" />
+              <div class="form-group">
+                <label for="subject">Related Topic</label>
+                <select id="subject" name="subject">
+                  <option value="">Choose one…</option>
+                  <option value="1:1 Session">1:1 Yoga Therapy Session</option>
+                  <option value="Workshop / Talk Enquiry">Workshop / Talk Enquiry</option>
+                  <option value="General Question">General Question</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
 
-            <button type="submit" class="btn btn-primary form-submit">Subscribe</button>
+              <div class="form-group">
+                <label for="message">Your message</label>
+                <textarea id="message" name="message" required placeholder="Say as little or as much as you like."></textarea>
+              </div>
 
-            <div class="form-success" id="nl-success">
-              Thank you — please check your inbox to confirm your subscription.
-            </div>
-            <div class="form-error" id="nl-error">
-              Something went wrong. Please try again, or email kayley@soulvibes.ca directly.
-            </div>
-          </form>
+              <!-- Newsletter opt-in (CASL: must be unchecked by default) -->
+              <div class="checkbox-group">
+                <input type="checkbox" id="newsletter_optin" name="newsletter_optin" value="yes" />
+                <label for="newsletter_optin">Yes, please also add me to the Soul Vibes email list — occasional updates on workshops, events, and offerings. You can unsubscribe at any time.</label>
+              </div>
 
-          <p class="casl-note">By subscribing you consent to receive emails from Soul Vibes. You can unsubscribe at any time.</p>
-        </div>
+              <!-- Honeypot spam field — hidden from humans -->
+              <input type="text" name="_gotcha" style="display:none" />
 
-        <!-- ============================================================ -->
-        <!-- OPTION B — MailerLite hosted embed (their form, their styles) -->
-        <!-- ============================================================ -->
-        <div class="newsletter-card" style="margin-top: 2rem;">
-          <span class="compare-label">Option B · MailerLite Embed</span>
-          <h2>Stay in touch</h2>
-          <p class="lead-small">Receive occasional notes from Soul Vibes — upcoming workshops, new offerings, and gentle reflections on nervous system care. No spam, unsubscribe at any time.</p>
+              <button type="submit" class="btn btn-primary form-submit">Send message</button>
 
-          <!-- MailerLite Universal -->
-          <script>
-            (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-            .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-            n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-            (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-            ml('account', '2105320');
-          </script>
-          <div class="ml-embedded" data-form="NQkuM4"></div>
+              <div class="form-success" id="form-success">
+                Thank you — your message has been sent. You will hear back within 1–2 business days.
+              </div>
+              <div class="form-error" id="form-error">
+                Something went wrong. Please try again, or email directly.
+              </div>
 
-          <p class="casl-note">By subscribing you consent to receive emails from Soul Vibes. You can unsubscribe at any time.</p>
-        </div>
+              <p class="form-note">Your information is kept private and never shared.</p>
+            </form>
+          </div>
 
-        <!-- Form (Formspree) -->
-        <div class="contact-form" style="margin-top: 3rem;">
-          <h2 style="font-size: 1.6rem; margin-bottom: 1.5rem;">Send a message</h2>
+          <!-- TAB 2: Stay in touch (MailerLite, custom HTML) -->
+          <div class="tab-panel" id="tab-newsletter" role="tabpanel" aria-labelledby="tab-newsletter-btn">
+            <p class="intro">Receive occasional notes from Soul Vibes — upcoming workshops, new offerings, and gentle reflections on nervous system care. No spam, unsubscribe at any time.</p>
 
-          <!--
-            FORMSPREE SETUP:
-            1. Go to formspree.io and create a free account
-            2. Create a new form — it gives you a unique action URL
-            3. Replace xvzdkwdw below with that ID (e.g. xpzgkwqr)
-            4. Submissions will go directly to your email
-          -->
-          <form
-            id="contact-form"
-            action="https://formspree.io/f/xvzdkwdw"
-            method="POST"
-          >
-            <div class="form-group">
-              <label for="name">Your name</label>
-              <input type="text" id="name" name="name" required autocomplete="name" placeholder="First and last name" />
-            </div>
+            <form id="newsletter-custom" class="newsletter-form" novalidate>
+              <div class="row">
+                <div class="form-group">
+                  <label for="nl-name">First name</label>
+                  <input type="text" id="nl-name" name="fields[name]" required autocomplete="given-name" placeholder="Your first name" />
+                </div>
+                <div class="form-group">
+                  <label for="nl-email">Email address</label>
+                  <input type="email" id="nl-email" name="fields[email]" required autocomplete="email" placeholder="you@example.com" />
+                </div>
+              </div>
 
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" />
-            </div>
+              <input type="hidden" name="ml-submit" value="1" />
+              <input type="hidden" name="anticsrf" value="true" />
 
-            <div class="form-group">
-              <label for="subject">Related Topic</label>
-              <select id="subject" name="subject">
-                <option value="">Choose one…</option>
-                <option value="1:1 Session">1:1 Yoga Therapy Session</option>
-                <option value="Workshop / Talk Enquiry">Workshop / Talk Enquiry</option>
-                <option value="General Question">General Question</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
+              <button type="submit" class="btn btn-primary form-submit">Subscribe</button>
 
-            <div class="form-group">
-              <label for="message">Your message</label>
-              <textarea id="message" name="message" required placeholder="Say as little or as much as you like."></textarea>
-            </div>
+              <div class="form-success" id="nl-success">
+                Thank you — please check your inbox to confirm your subscription.
+              </div>
+              <div class="form-error" id="nl-error">
+                Something went wrong. Please try again, or email kayley@soulvibes.ca directly.
+              </div>
+            </form>
 
-            <!-- Newsletter opt-in (CASL: must be unchecked by default) -->
-            <div class="checkbox-group">
-              <input type="checkbox" id="newsletter_optin" name="newsletter_optin" value="yes" />
-              <label for="newsletter_optin">Yes, please add me to the Soul Vibes email list — occasional updates on workshops, events, and offerings. You can unsubscribe at any time.</label>
-            </div>
+            <p class="casl-note">By subscribing you consent to receive emails from Soul Vibes. You can unsubscribe at any time.</p>
+          </div>
 
-            <!-- Honeypot spam field — hidden from humans -->
-            <input type="text" name="_gotcha" style="display:none" />
-
-            <button type="submit" class="btn btn-primary form-submit">Send message</button>
-
-            <div class="form-success" id="form-success">
-              Thank you — your message has been sent. You will hear back within 1–2 business days.
-            </div>
-            <div class="form-error" id="form-error">
-              Something went wrong. Please try again, or email directly.
-            </div>
-
-            <p class="form-note">Your information is kept private and never shared.</p>
-          </form>
         </div>
 
       </div>
@@ -401,15 +372,24 @@
 
   <script src="js/main.js"></script>
   <script>
-    // ============================================================
-    // Custom newsletter form (Option A) — posts directly to MailerLite
-    // Uses no-cors mode because MailerLite's JSONP endpoint doesn't
-    // return CORS headers. We can't read the response, but the
-    // submission goes through. Assume success unless network error.
-    //
-    // SETUP: replace 2105320 and NQkuM4
-    // with the same values used in the Option B embed below.
-    // ============================================================
+    // Tab switching for combined contact card
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          const isActive = b === btn;
+          b.classList.toggle('active', isActive);
+          b.setAttribute('aria-selected', isActive);
+        });
+        document.querySelectorAll('.tab-panel').forEach(p => {
+          p.classList.toggle('active', p.id === targetId);
+        });
+      });
+    });
+
+    // Newsletter form posts directly to MailerLite via no-cors fetch.
+    // Opaque response means we can't read success/failure; assume success
+    // unless a network error throws. Account/Form IDs are public-safe.
     const nlForm = document.getElementById('newsletter-custom');
     const nlSuccess = document.getElementById('nl-success');
     const nlError = document.getElementById('nl-error');
