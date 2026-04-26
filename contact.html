@@ -133,6 +133,64 @@
     .form-success { background: rgba(91,115,95,0.2); border: 1px solid var(--sage); color: var(--sage); }
     .form-error   { background: rgba(180,80,80,0.15); border: 1px solid rgba(200,100,100,0.4); color: #e8a0a0; }
 
+    /* Newsletter opt-in checkbox (inside contact form) */
+    .checkbox-group {
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+      margin: 0.5rem 0 1.25rem;
+      padding: 1rem;
+      background: rgba(91,115,95,0.08);
+      border: 1px solid rgba(140,161,143,0.18);
+      border-radius: 12px;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+    .checkbox-group label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      cursor: pointer;
+    }
+
+    /* Newsletter signup card (dedicated) */
+    .newsletter-card {
+      max-width: 640px;
+      margin: 3rem auto 0;
+      background: rgba(20,10,30,0.72);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: var(--radius);
+      padding: 2.25rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+      border-left: 3px solid var(--gold);
+    }
+    .newsletter-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .newsletter-card .lead-small {
+      color: var(--muted);
+      font-size: 0.97rem;
+      margin-bottom: 1.5rem;
+    }
+    .newsletter-card .casl-note {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 1rem;
+      text-align: center;
+      line-height: 1.55;
+    }
+    /* Style overrides for embedded MailerLite form (so it blends in) */
+    .ml-embedded {
+      background: transparent !important;
+    }
   </style>
 </head>
 <body>
@@ -168,8 +226,35 @@
     <section>
       <div class="container contact-grid">
 
+        <!--
+          DEDICATED NEWSLETTER SIGNUP (MailerLite Universal embed)
+
+          KAYLEY/MOCHA SETUP:
+          1. In MailerLite → Forms → Embedded → create a new form titled "Soul Vibes Newsletter"
+          2. Copy the Account ID and Form ID from the embed code MailerLite generates
+          3. Replace REPLACE_WITH_ACCOUNT_ID and REPLACE_WITH_FORM_ID below
+          4. The form will inherit MailerLite's styling — overrides above keep the surrounding card matching the site
+        -->
+        <div class="newsletter-card">
+          <h2>Stay in touch</h2>
+          <p class="lead-small">Receive occasional notes from Soul Vibes — upcoming workshops, new offerings, and gentle reflections on nervous system care. No spam, unsubscribe at any time.</p>
+
+          <!-- MailerLite Universal -->
+          <script>
+            (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+            .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+            n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+            (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+            ml('account', 'REPLACE_WITH_ACCOUNT_ID');
+          </script>
+          <!-- MailerLite embedded form -->
+          <div class="ml-embedded" data-form="REPLACE_WITH_FORM_ID"></div>
+
+          <p class="casl-note">By subscribing you consent to receive emails from Soul Vibes. You can unsubscribe from any email — no questions asked.</p>
+        </div>
+
         <!-- Form (Formspree) -->
-        <div class="contact-form">
+        <div class="contact-form" style="margin-top: 3rem;">
           <h2 style="font-size: 1.6rem; margin-bottom: 1.5rem;">Send a message</h2>
 
           <!--
@@ -208,6 +293,12 @@
             <div class="form-group">
               <label for="message">Your message</label>
               <textarea id="message" name="message" required placeholder="Say as little or as much as you like."></textarea>
+            </div>
+
+            <!-- Newsletter opt-in (CASL: must be unchecked by default) -->
+            <div class="checkbox-group">
+              <input type="checkbox" id="newsletter_optin" name="newsletter_optin" value="yes" />
+              <label for="newsletter_optin">Yes, please add me to the Soul Vibes email list — occasional updates on workshops, events, and offerings. You can unsubscribe at any time.</label>
             </div>
 
             <!-- Honeypot spam field — hidden from humans -->
