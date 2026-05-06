@@ -7,6 +7,7 @@
 - **Website** — 4 pages live at [soul-vibes.vercel.app](https://soul-vibes.vercel.app)
 - **Contact form** — live and delivering to kayley@soulvibes.ca (Formspree)
 - **Booking modal** — Acuity calendar embedded and working on Work With Me page
+- **Client intake form** — private page at [soulvibes.ca/client-intake.html](https://soulvibes.ca/client-intake.html), submissions delivered to kayley@soulvibes.ca with subject "✦ New Client Intake — Soul Vibes" (see "Sending a Client Their Intake Form" section below)
 - **Workshop events** — Burnout & The Body (May 9) and Stress & the Nervous System (June 4) listed
 - **Logo, images, content** — all pages complete with real photos and text
 
@@ -145,6 +146,35 @@ I am not technical.
 
 ---
 
+## Sending a Client Their Intake Form
+
+Your private intake page is live at:
+**https://soulvibes.ca/client-intake.html**
+
+To send it to a client:
+1. Email or text them the link
+2. They fill it out in their browser
+3. Submitted answers arrive in your inbox at kayley@soulvibes.ca with the subject **"✦ New Client Intake — Soul Vibes"**
+
+**Treat this URL like a password:**
+- Only share it with clients directly (email, text, booking confirmation note)
+- Do not post it on Instagram, your website, or any public channel
+- The page is hidden from Google but anyone with the link could open it
+
+---
+
+### Future improvement (no rush)
+
+The cleanest long-term home for intake responses is *inside Acuity*, attached to each client's profile alongside their bookings. Acuity doesn't currently let us send forms to existing clients without re-booking, which is why we built this private page as a workaround.
+
+When you're ready, we can:
+1. Attach your intake form to the "1:1 Session" appointment type in Acuity so every new booking auto-includes it (ideal for new clients).
+2. Keep this private page as a backup for one-off needs.
+
+The current setup works fine — only revisit when convenient.
+
+---
+
 ## Making Future Changes to the Website
 
 If you want to update text, add a new event, change pricing, or anything else:
@@ -162,4 +192,4 @@ I am not technical but I want to learn. Walk me through it step by step.
 
 ---
 
-*Last updated: April 23, 2026 — built by Mocha (MochaS29)*
+*Last updated: May 6, 2026 — built by Mocha (MochaS29)*

@@ -25,6 +25,7 @@ soul-vibes/
 ├── work-with-me.html    ← Offerings, booking, events
 ├── about.html           ← Kayley's bio, credentials, land acknowledgement
 ├── contact.html         ← Contact form (Formspree)
+├── client-intake.html   ← Private intake form (Formspree, noindex, share-by-URL only)
 ├── css/
 │   └── main.css         ← All styles, design system, responsive layout
 ├── js/
@@ -65,12 +66,22 @@ soul-vibes/
 - To add a new "Book" button anywhere: `<button class="btn btn-primary" data-open-booking>Book a Session</button>`
 - The modal JS is at the bottom of `work-with-me.html`
 
-### Formspree (Contact Form)
-- Contact form on `contact.html` submits to Formspree
-- **Form ID:** xvzdkwdw
+### Formspree (Contact Form + Client Intake)
+- **contact.html** submits to Formspree → kayley@soulvibes.ca (subject derived from the dropdown the user picks)
+- **client-intake.html** submits to the same Formspree endpoint → kayley@soulvibes.ca (subject hardcoded as `✦ New Client Intake — Soul Vibes` for inbox triage)
+- **Form ID:** xvzdkwdw (shared by both forms)
 - **Endpoint:** https://formspree.io/f/xvzdkwdw
-- Submissions deliver to kayley@soulvibes.ca
-- The form has AJAX submission — success/error messages show without page reload
+- Both forms use AJAX submission — success/error states show without page reload
+- **Free tier:** 50 submissions/month total across both forms — monitor and upgrade (~$10/mo) if Kayley starts hitting the limit
+
+### client-intake.html (Private Intake Page)
+- Lives at `soulvibes.ca/client-intake.html` — full intake form (personal info, emergency contact, about-you questions, practice preferences, consents, waiver, signature)
+- **Not linked** from any nav, footer, or other page — share-by-direct-URL only
+- `<meta name="robots" content="noindex, nofollow">` so it won't appear in search results
+- Built as a workaround because Acuity doesn't currently let Kayley send intake forms to existing clients without re-booking them
+- Self-contained styling — does **not** use the main `css/main.css`. Has its own palette (plum/cream) and Cormorant Garamond + Jost fonts inlined in the file
+- The header logo is a base64-encoded PNG embedded in the HTML — that's why the file is ~200KB
+- **Long-term plan:** migrate intake data home to Acuity (attach form to appointment type). See KAYLEY-TODO.md "Future improvement" note
 
 ### Stripe (Payments)
 - Connected to Acuity for payment processing
@@ -195,4 +206,4 @@ git push
 
 ---
 
-*Handoff document — Soul Vibes website. Last updated April 16, 2026.*
+*Handoff document — Soul Vibes website. Last updated May 6, 2026.*
