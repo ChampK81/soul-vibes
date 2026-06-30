@@ -274,8 +274,18 @@
       display: none; color: #ffb4a8; font-size: 0.9rem;
       margin-top: 0.75rem; text-align: center;
     }
+    .freebie-quote {
+      margin: 1.5rem 0 0;
+      padding: 0.1rem 0 0.1rem 1rem;
+      border-left: 2px solid var(--gold);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
     @media (max-width: 760px) {
       .freebie-card { grid-template-columns: 1fr; padding: 1.75rem; gap: 1.5rem; }
+      .freebie-quote { font-size: 1rem; }
     }
   </style>
 </head>
@@ -323,13 +333,14 @@
         <div class="freebie-card">
           <div class="freebie-text">
             <span class="pill" style="align-self: flex-start;">&#10022; Free Guide</span>
-            <h2>A free guide to help your nervous system feel safe again</h2>
-            <p class="muted">Simple, accessible practices you can begin today &mdash; no experience needed. Enter your email and I&rsquo;ll send the guide straight to your inbox.</p>
+            <h2>Your instincts never left.</h2>
+            <p class="muted">A free guide &mdash; part story, part practice &mdash; for anyone running on autopilot, disconnected from that quiet inner voice. Including a <strong>60-Second Reset</strong> you can come back to anytime. It asks almost nothing of you.</p>
             <ul class="freebie-list">
-              <li>Gentle, trauma-informed tools for everyday stress</li>
-              <li>Practices you can do anywhere, in just a few minutes</li>
-              <li>A calmer starting point, at your own pace</li>
+              <li>Kayley&rsquo;s honest story of disconnection &mdash; and the slow, un-tidy way back</li>
+              <li><strong>The 60-Second Reset</strong>: notice &rarr; name it &rarr; stay in the driver&rsquo;s seat</li>
+              <li>No fixing, no pressure &mdash; just permission to come back to your body, at your own pace</li>
             </ul>
+            <blockquote class="freebie-quote">&ldquo;Your instincts are the quiet whispers. Everything else is just noise.&rdquo;</blockquote>
           </div>
           <div class="freebie-form-wrap">
             <form id="freebie-form" class="freebie-form" novalidate>
