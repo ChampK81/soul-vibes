@@ -72,12 +72,9 @@ img { max-width: 100%; display: block; }
 }
 
 .brand img {
-  height: 46px;
+  height: 52px;
   width: auto;
   display: block;
-  background: white;
-  border-radius: 10px;
-  padding: 7px 14px;
 }
 
 .brand strong {
@@ -408,9 +405,8 @@ h3 { font-size: 1.22rem; }
 
 @media (max-width: 600px) {
   .brand img {
-    height: 34px;
-    padding: 6px 12px;
-    max-width: calc(100vw - 110px);
+    height: 38px;
+    max-width: calc(100vw - 96px);
     object-fit: contain;
   }
 }
