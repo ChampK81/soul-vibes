@@ -224,6 +224,59 @@
         margin: 0 0 1rem 0 !important;
       }
     }
+
+    /* Free guide / lead magnet */
+    .freebie { padding: 3.5rem 0 1rem; }
+    .freebie-card {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(201,168,76,0.16), rgba(20,10,30,0.66));
+      border: 1px solid rgba(201,168,76,0.38);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+    }
+    .freebie-text h2 { margin: 0.6rem 0 0.75rem; }
+    .freebie-list {
+      list-style: none; padding: 0; margin: 1.1rem 0 0;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .freebie-list li {
+      color: var(--muted); font-size: 0.95rem;
+      padding-left: 1.4rem; position: relative;
+    }
+    .freebie-list li::before {
+      content: "\2726"; color: var(--gold); position: absolute; left: 0;
+    }
+    .freebie-form .form-group { margin-bottom: 0.9rem; }
+    .freebie-form label {
+      display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.35rem;
+    }
+    .freebie-form input {
+      width: 100%; box-sizing: border-box;
+      padding: 0.8rem 0.9rem; border-radius: 10px;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.06);
+      color: var(--text); font-size: 0.95rem;
+    }
+    .freebie-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .freebie-form button { width: 100%; margin-top: 0.25rem; }
+    .freebie-note {
+      font-size: 0.78rem; color: var(--muted);
+      margin: 0.75rem 0 0; text-align: center;
+    }
+    .freebie-success { display: none; text-align: center; }
+    .freebie-success .btn { width: 100%; margin-top: 1rem; }
+    .freebie-error {
+      display: none; color: #ffb4a8; font-size: 0.9rem;
+      margin-top: 0.75rem; text-align: center;
+    }
+    @media (max-width: 760px) {
+      .freebie-card { grid-template-columns: 1fr; padding: 1.75rem; gap: 1.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -253,6 +306,56 @@
         <div class="pill">&#10022; Work With Me</div>
         <h1>Support that meets you where you are.</h1>
         <p class="lead">Whether you are looking for one-on-one sessions, a workshop, or a talk for your team or community, there is a way to work together that fits where you are right now.</p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FREE GUIDE — lead magnet (email capture -> PDF download).
+         Emails go to the Soul Vibes MailerLite list. The PDF is served
+         from downloads/soul-vibes-free-guide.pdf.
+         TO GO LIVE: (1) replace downloads/soul-vibes-free-guide.pdf with
+         the real guide (keep the same filename, or update the href below),
+         (2) tweak the heading/description/bullets copy if needed,
+         (3) merge this branch to main.
+         ========================================================= -->
+    <section class="freebie" id="free-guide">
+      <div class="container">
+        <div class="freebie-card">
+          <div class="freebie-text">
+            <span class="pill" style="align-self: flex-start;">&#10022; Free Guide</span>
+            <h2>A free guide to help your nervous system feel safe again</h2>
+            <p class="muted">Simple, accessible practices you can begin today &mdash; no experience needed. Enter your email and I&rsquo;ll send the guide straight to your inbox.</p>
+            <ul class="freebie-list">
+              <li>Gentle, trauma-informed tools for everyday stress</li>
+              <li>Practices you can do anywhere, in just a few minutes</li>
+              <li>A calmer starting point, at your own pace</li>
+            </ul>
+          </div>
+          <div class="freebie-form-wrap">
+            <form id="freebie-form" class="freebie-form" novalidate>
+              <div class="form-group">
+                <label for="fg-name">First name</label>
+                <input type="text" id="fg-name" name="fields[name]" required autocomplete="given-name" placeholder="Your first name" />
+              </div>
+              <div class="form-group">
+                <label for="fg-email">Email address</label>
+                <input type="email" id="fg-email" name="fields[email]" required autocomplete="email" placeholder="you@example.com" />
+              </div>
+              <input type="hidden" name="ml-submit" value="1" />
+              <input type="hidden" name="anticsrf" value="true" />
+              <button type="submit" class="btn btn-primary">Send me the guide</button>
+              <p class="freebie-note">By downloading you&rsquo;ll also receive occasional notes from Soul Vibes. Unsubscribe anytime.</p>
+            </form>
+            <div class="freebie-success" id="fg-success">
+              <h3 style="margin: 0 0 0.4rem;">Your guide is on its way! &#10022;</h3>
+              <p class="muted" style="margin: 0 0 0.25rem;">Check your inbox to confirm &mdash; or grab it right here:</p>
+              <a class="btn btn-primary" id="fg-download" href="downloads/soul-vibes-free-guide.pdf" download target="_blank" rel="noopener">Download the guide (PDF)</a>
+            </div>
+            <div class="freebie-error" id="fg-error">
+              Something went wrong. Please try again, or email <a href="mailto:kayley@soulvibes.ca" style="color: var(--gold);">kayley@soulvibes.ca</a>.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -360,5 +463,39 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // Free-guide lead magnet: capture the email to MailerLite (same Soul Vibes
+    // list as the newsletter), then reveal the PDF download. Opaque no-cors
+    // response, so we assume success unless the network call throws.
+    // Account/Form IDs are public-safe (identical to the Contact page form).
+    (function () {
+      const ML_ACCOUNT_ID = '2105320';
+      const ML_FORM_ID = '179059986540791003';
+      const fg = document.getElementById('freebie-form');
+      const ok = document.getElementById('fg-success');
+      const err = document.getElementById('fg-error');
+      if (!fg) return;
+      fg.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = fg.querySelector('button[type="submit"]');
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        err.style.display = 'none';
+        try {
+          await fetch(`https://assets.mailerlite.com/jsonp/${ML_ACCOUNT_ID}/forms/${ML_FORM_ID}/subscribe`, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: new FormData(fg)
+          });
+          fg.style.display = 'none';
+          ok.style.display = 'block';
+        } catch {
+          err.style.display = 'block';
+          btn.textContent = 'Send me the guide';
+          btn.disabled = false;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
