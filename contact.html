@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Soul Vibes</title>
-  <meta name="description" content="Get in touch with Soul Vibes — questions welcome before booking. Workshop and talk enquiries also accepted." />
+  <meta name="description" content="Get in touch with Soul Vibes. Questions welcome before booking. Workshop and talk enquiries also accepted." />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
   <meta property="og:title" content="Contact | Soul Vibes" />
-  <meta property="og:description" content="Reach out to Kayley at Soul Vibes — no commitment, no pressure. Questions about yoga therapy are always welcome." />
+  <meta property="og:description" content="Reach out to Kayley at Soul Vibes. No commitment, no pressure. Questions about yoga therapy are always welcome." />
   <meta property="og:image" content="images/Contact Me Header Image.jpeg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://soulvibes.ca/contact.html" />
@@ -226,7 +226,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <img src="images/logo-wordmark.png" alt="Soul Vibes — Yoga for the Mind" />
+        <img src="images/logo-wordmark.png" alt="Soul Vibes. Yoga for the Mind" />
       </a>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -247,7 +247,7 @@
       <div class="container hero-grid">
         <div class="pill">&#10022; Get in Touch</div>
         <h1>Let&rsquo;s Connect.</h1>
-        <p class="lead">Whether you are curious about a specific offering, want to talk before booking, or are enquiring about a workshop for your team — feel free to reach out.</p>
+        <p class="lead">Whether you are curious about a specific offering, want to talk before booking, or are enquiring about a workshop for your team, feel free to reach out.</p>
       </div>
     </section>
 
@@ -300,16 +300,16 @@
               <!-- Newsletter opt-in (CASL: must be unchecked by default) -->
               <div class="checkbox-group">
                 <input type="checkbox" id="newsletter_optin" name="newsletter_optin" value="yes" />
-                <label for="newsletter_optin">Yes, please also add me to the Soul Vibes email list — occasional updates on workshops, events, and offerings. You can unsubscribe at any time.</label>
+                <label for="newsletter_optin">Yes, please also add me to the Soul Vibes email list: occasional updates on workshops, events, and offerings. You can unsubscribe at any time.</label>
               </div>
 
-              <!-- Honeypot spam field — hidden from humans -->
+              <!-- Honeypot spam field, hidden from humans -->
               <input type="text" name="_gotcha" style="display:none" />
 
               <button type="submit" class="btn btn-primary form-submit">Send message</button>
 
               <div class="form-success" id="form-success">
-                Thank you — your message has been sent. You will hear back within 1–2 business days.
+                Thank you. Your message has been sent. You will hear back within 1–2 business days.
               </div>
               <div class="form-error" id="form-error">
                 Something went wrong. Please try again, or email directly.
@@ -321,7 +321,7 @@
 
           <!-- TAB 2: Stay in touch (MailerLite, custom HTML) -->
           <div class="tab-panel" id="tab-newsletter" role="tabpanel" aria-labelledby="tab-newsletter-btn">
-            <p class="intro">Receive occasional notes from Soul Vibes — upcoming workshops, new offerings, and gentle reflections on nervous system care. No spam, unsubscribe at any time.</p>
+            <p class="intro">Receive occasional notes from Soul Vibes: upcoming workshops, new offerings, and gentle reflections on nervous system care. No spam, unsubscribe at any time.</p>
 
             <form id="newsletter-custom" class="newsletter-form" novalidate>
               <div class="row">
@@ -341,7 +341,7 @@
               <button type="submit" class="btn btn-primary form-submit">Subscribe</button>
 
               <div class="form-success" id="nl-success">
-                Thank you — please check your inbox to confirm your subscription.
+                Thank you. Please check your inbox to confirm your subscription.
               </div>
               <div class="form-error" id="nl-error">
                 Something went wrong. Please try again, or email kayley@soulvibes.ca directly.
@@ -437,7 +437,7 @@
         btn.disabled = true;
 
         // If the newsletter opt-in is checked, also POST to MailerLite in
-        // parallel. Fire-and-forget — uses no-cors (opaque response), so we
+        // parallel. Fire-and-forget, uses no-cors (opaque response), so we
         // can't read the result. CASL: this only runs if the user explicitly
         // ticked the checkbox.
         const optinChecked = form.querySelector('#newsletter_optin')?.checked;
@@ -453,7 +453,7 @@
             method: 'POST',
             mode: 'no-cors',
             body: mlBody
-          }).catch(() => {}); // silent — Formspree submission is the source of truth for UX
+          }).catch(() => {}); // silent: Formspree submission is the source of truth for UX
         }
 
         try {
