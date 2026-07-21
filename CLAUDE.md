@@ -130,4 +130,7 @@ review (on a phone), merge. Commit messages are a short plain description of wha
   Merge only when both are in.
 - Kayley's admin list lives in `KAYLEY-TODO.md` (Stripe 2FA phone swap, 1:1 payment-method
   contradiction in Acuity, optional $45 group session).
-- Optional polish, not urgent: sitemap.xml, robots.txt, LocalBusiness JSON-LD, branded 404, analytics.
+- Optional polish, not urgent: branded 404, analytics. (sitemap.xml, robots.txt, JSON-LD, canonical
+  tags, and absolute OG images were added in the Jul 2026 SEO pass. `client-intake.html` is deliberately
+  NOT in robots.txt: a Disallow line would expose the private URL and block crawlers from seeing its
+  noindex. When editing a page, keep its `<link rel="canonical">`/`og:url` and sitemap.xml in sync.)
