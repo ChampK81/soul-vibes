@@ -87,8 +87,9 @@ Key classes: `.container`, `.narrow`, `.split`, `.three-col`, `.hero`, `.image-b
 
 ## Standing rules (learned the hard way — don't relearn them)
 
-1. **The header logo is LOCKED.** `images/logo-wordmark.png` (transparent rectangular gold
-   wordmark) and its CSS are final. Do not restyle, recrop, or "improve" it.
+1. **The header logo is LOCKED.** `images/logo-wordmark.png` (transparent gold wordmark, pulse
+   line stacked above the name, revised July 2026) and its CSS are final. Do not restyle,
+   recrop, or "improve" it.
 2. **Mobile first.** Kayley reviews everything on her phone. Check every change at phone width
    before publishing.
 3. **Keep it plain.** No frameworks (React etc.), no CMS, no build tools. That simplicity is the
