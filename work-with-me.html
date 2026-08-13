@@ -203,6 +203,15 @@
 
     .event-info h3 { margin-bottom: 0.35rem; font-size: 1.05rem; }
 
+    /* Text column + poster side by side, text vertically centered on the poster */
+    .event-info {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+    .event-info .event-text { flex: 1; }
+
     @media (max-width: 980px) {
       .events-grid { grid-template-columns: 1fr; }
     }
@@ -220,7 +229,7 @@
       .event-date .day { font-size: 1.5rem; }
 
       /* Image moves up to where the date column used to sit, full width */
-      .event-info { display: flex; flex-direction: column; }
+      .event-info { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
       .event-info img {
         float: none !important;
         order: -1;
@@ -344,15 +353,17 @@
                 <span class="day">25</span>
               </div>
               <div class="event-info">
-                <h3>Runs Hot</h3>
-                <img src="images/runs-hot-poster.jpg" alt="Runs Hot: a free weekly somatic class from Soul Vibes. Steady when it counts, wrecked by the quiet. Tuesdays 7:30&ndash;8:30pm MT, starting August 25. Virtual and free." style="float: right; width: 340px; max-width: 42%; max-height: 425px; height: auto; object-fit: contain; border-radius: 12px; margin: 0 0 0.75rem 1.4rem; border: 1px solid rgba(255,255,255,0.12);" />
-                <p class="muted" style="margin-bottom: 0.85rem;">A free weekly somatic class for people whose systems run hot. If you're steady when everything's going wrong and undone by the quiet, if you've been told to slow down and found it made things louder, this is a different experience.</p>
-                <ul class="offering-details" style="margin-bottom: 1.1rem;">
-                  <li>Tuesdays &middot; 7:30&ndash;8:30pm MT</li>
-                  <li>Starting August 25, 2026</li>
-                  <li>Virtual &middot; Free</li>
-                </ul>
-                <a class="btn btn-primary" href="book.html">Sign up</a>
+                <div class="event-text">
+                  <h3>Runs Hot</h3>
+                  <p class="muted" style="margin-bottom: 0.85rem;">A free weekly somatic class for people whose systems run hot. If you're steady when everything's going wrong and undone by the quiet, if you've been told to slow down and found it made things louder, this is a different experience.</p>
+                  <ul class="offering-details" style="margin-bottom: 1.1rem;">
+                    <li>Tuesdays &middot; 7:30&ndash;8:30pm MT</li>
+                    <li>Starting August 25, 2026</li>
+                    <li>Virtual &middot; Free</li>
+                  </ul>
+                  <a class="btn btn-primary" href="book.html">Sign up</a>
+                </div>
+                <img src="images/runs-hot-poster.jpg" alt="Runs Hot: a free weekly somatic class from Soul Vibes. Steady when it counts, wrecked by the quiet. Tuesdays 7:30&ndash;8:30pm MT, starting August 25. Virtual and free." style="width: 340px; max-width: 42%; max-height: 425px; height: auto; object-fit: contain; border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); flex-shrink: 0;" />
               </div>
             </div>
           </div>
