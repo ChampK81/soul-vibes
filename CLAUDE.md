@@ -1,8 +1,8 @@
 # Soul Vibes — CLAUDE.md
 
 This file is the project brief for Claude Code (or any AI coding assistant). It is read
-automatically at the start of every session. It is written so that **Kayley can run this site
-on her own machine with no other help**: follow "First-time setup" below, then ask Claude to
+automatically at the start of every session. It is written so that **Kayley can update this
+site herself with no other help**: follow "First-time setup" below, then ask Claude to
 make the change you want in plain English.
 
 ## What this is
@@ -16,25 +16,28 @@ step, no server. Edit a file, push it, and the live site updates itself in about
 - **Hosting:** Vercel (Kayley's account), auto-deploys the `main` branch
 - **Built by:** Mocha (MochaS29). Questions: mocha.shmigelsky@gmail.com
 
-## First-time setup on a new machine (Kayley: start here)
+## First-time setup (Kayley: start here)
 
-1. Install **Claude Code**: follow https://claude.com/claude-code (it walks you through
-   installing everything it needs, including git).
-2. Sign in to GitHub as **ChampK81** in your browser.
-3. Open Terminal and run:
-   ```bash
-   git clone https://github.com/ChampK81/soul-vibes.git
-   cd soul-vibes
-   claude
-   ```
-   (git will ask you to log in to GitHub the first time; approve it in the browser.)
-4. That's it. Tell Claude what you want changed, in plain English. To see the site locally
-   before publishing, ask Claude to "open index.html in my browser" or run `open index.html`.
-5. Publishing = pushing to `main`. Claude can do this for you ("commit and push my change").
-   Then check **https://soulvibes.ca** on your **phone** to confirm it looks right.
+Kayley works from a Chromebook, so the supported path is **Claude Code on the web**. It runs
+entirely in the browser; nothing gets installed.
 
-There is no install step, no `npm install` needed to edit or preview the site. (The `package.json`
-in the repo is only for the optional Playwright test suite, which is currently paused.)
+1. Sign in at **claude.ai** (a paid plan is required for Claude Code; Pro is enough).
+2. Go to **claude.ai/code** and bookmark it. This is your website editor.
+3. When it asks, connect **GitHub**, authorize as **ChampK81**, and grant access to the
+   **soul-vibes** repository. This is a one-time step.
+4. Open a session on the repo and ask for the change you want, in plain English. Attach
+   images (like an event poster) straight into the chat. Ask Claude to **show you the
+   change before publishing**.
+5. Publishing = getting the change onto the `main` branch. Say "publish it" (if Claude
+   opens a pull request instead, say "merge it and make it live"). Then check
+   **https://soulvibes.ca** on your **phone** to confirm it looks right.
+
+*Working locally instead (Mocha, or any machine with a Terminal):* clone
+`https://github.com/ChampK81/soul-vibes.git`, run `claude` inside it. No install step, no
+`npm install` needed to edit or preview the site; open the .html files directly in a browser.
+(The `package.json` is only for the optional Playwright test suite, which is currently
+paused.) Always `git pull` before starting work: web sessions and other machines push to the
+same `main`.
 
 ## The pages
 
@@ -64,9 +67,11 @@ The MX records route kayley@soulvibes.ca email: **never delete or change the MX 
 
 ## Third-party services (no secrets live in this repo — keep it that way)
 
-- **Acuity Scheduling** (booking): owner ID `39014675`. Booking opens as a modal popup from any
-  element with the `data-open-booking` attribute; the modal JS is at the bottom of
-  `work-with-me.html`. New book button: `<button class="btn btn-primary" data-open-booking>Book a Session</button>`
+- **Acuity Scheduling** (booking): owner ID `39014675`. Booking happens on `book.html`, which
+  embeds the Acuity scheduler in an iframe. Book/sign-up buttons are plain links to that page:
+  `<a class="btn btn-primary" href="book.html">Book a Session</a>`. (The old `data-open-booking`
+  modal was removed; some leftover modal CSS in `work-with-me.html` is harmless. Don't add
+  `data-open-booking` buttons, they no longer do anything.)
 - **Stripe** (payments): connected inside Acuity, live mode, CAD. Managed entirely from the
   Acuity and Stripe dashboards, nothing in this repo.
 - **Formspree** (contact + intake forms): form ID `xvzdkwdw`, shared by `contact.html` and
