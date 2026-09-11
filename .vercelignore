@@ -1,0 +1,10 @@
+# Files Vercel should NOT publish on soulvibes.ca.
+# Every other file in this repo is served as a public page, so notes and
+# working docs go here. (The GitHub repo is public too, so nothing private
+# belongs in the repo at all.)
+*.md
+saved-copy/
+.claude/
+.github/
+tests/
+playwright.config.js

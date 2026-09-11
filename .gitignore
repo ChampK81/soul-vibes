@@ -1,3 +1,6 @@
 node_modules/
 playwright-report/
 test-results/
+
+# Mocha's working copy of Kayley's to-do list lives in ~/Private/clients/SoulVibes-assets/, not here
+KAYLEY-TODO.md

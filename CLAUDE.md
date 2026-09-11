@@ -59,6 +59,10 @@ Every push to `main` auto-deploys to Vercel and is live at soulvibes.ca in ~30 s
 There is no staging site; `main` IS production. For anything risky, work on a branch, review,
 then merge (that's how the new logo and favicon were done).
 
+**Every file in the repo is public** unless `.vercelignore` excludes it (it hides all `.md`
+files, `saved-copy/`, and the test files). The GitHub repo is public too, so private notes never
+belong in this repo at all.
+
 **After every publish, verify:** load https://soulvibes.ca (on a phone) and confirm the change
 is actually there before calling it done. "Pushed" is not "verified."
 
@@ -134,8 +138,12 @@ review (on a phone), merge. Commit messages are a short plain description of wha
   work-with-me.html, wired to MailerLite with a placeholder PDF. Waiting on Kayley's real PDF
   (drop it at `downloads/soul-vibes-free-guide.pdf`, keep the filename) and her copy review.
   Merge only when both are in.
-- Kayley's admin list lives in `KAYLEY-TODO.md` (Stripe 2FA phone swap, 1:1 payment-method
-  contradiction in Acuity, optional $45 group session).
+- Kayley's admin to-do list is NOT in this repo (moved Sep 11 2026, it had been publicly
+  served). Mocha keeps it in `~/Private/clients/SoulVibes-assets/KAYLEY-TODO.md` and pastes it
+  to Kayley; it is gitignored here so it can't be re-added by accident.
+- `saved-copy/home-explainer-and-faq.md`: the "Yoga therapy is more than a yoga class"
+  explainer + FAQ removed from the home page Sep 11 2026, kept for possible reuse on
+  `work-with-me.html`.
 - Optional polish, not urgent: branded 404, analytics. (sitemap.xml, robots.txt, JSON-LD, canonical
   tags, and absolute OG images were added in the Jul 2026 SEO pass. `client-intake.html` is deliberately
   NOT in robots.txt: a Disallow line would expose the private URL and block crawlers from seeing its
