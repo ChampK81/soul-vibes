@@ -57,8 +57,12 @@
       background-attachment: fixed;
     }
     .hero {
+      /* Own copy of the photo: iOS ignores the body's fixed background, which left a hard band */
       background-image:
-        linear-gradient(180deg, rgba(38,20,58,0.0) 0%, rgba(38,20,58,0.0) 50%, rgba(38,20,58,0.4) 100%);
+        linear-gradient(180deg, rgba(38,20,58,0.55) 0%, rgba(38,20,58,0.62) 60%, rgba(38,20,58,0.75) 100%),
+        url('images/Home Background.jpeg');
+      background-size: cover;
+      background-position: center top;
       padding: 3rem 0 5rem;
       min-height: 75vh;
     }
@@ -68,6 +72,9 @@
     .image-break::before {
       background: linear-gradient(180deg, rgba(38,20,58,0.55) 0%, rgba(38,20,58,0.2) 50%, rgba(38,20,58,0.55) 100%) !important;
     }
+    .hero-grid { gap: 0.9rem; }
+    .hero-grid h1, .hero-grid h2, .hero-grid p { text-shadow: 0 1px 3px rgba(0,0,0,0.45); }
+    .hero-grid .lead { font-size: 1.15rem; line-height: 1.7; max-width: 62ch; margin: 0 auto; }
   </style>
 </head>
 <body>
@@ -95,7 +102,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <h1>Your body hasn&rsquo;t gotten the message that it&rsquo;s over.</h1>
-        <p class="lead" style="color: var(--moss); font-size: 1.3rem; margin: -0.6rem 0; text-shadow: none;"><em>Even when you know it is.</em></p>
+        <p class="lead" style="color: #c9d6c6; font-size: 1.3rem; margin: -0.2rem 0 0.4rem; text-shadow: none;"><em>Even when you know it is.</em></p>
         <p class="lead">You function. That has never been the problem. You are the one who handles it, who gets asked because you always say yes.</p>
         <p class="lead">It is everything around the edges. Thoughts that arrive uninvited and will not leave. Lying awake exhausted. A feeling that something is off that you cannot point to or explain to anyone. The sense that you are built differently from everyone around you, and that if you described it properly nobody would know what you meant.</p>
         <p class="lead">Maybe it feels like you have the map in hand but you still don&rsquo;t quite know how to reach the destination.</p>
