@@ -363,6 +363,7 @@ h3 { font-size: 1.22rem; }
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  padding: 0.25rem 0; /* tap target over 24px; the text alone is ~23px tall */
   transition: color 0.2s;
 }
 
