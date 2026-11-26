@@ -1,0 +1,24 @@
+# Emails Kayley a weekly website stats summary.
+# Fridays 15:00 UTC = 8am Alberta time in winter (9am in summer).
+# "Run workflow" on the Actions tab sends one right away (for testing).
+name: Weekly website stats email
+
+on:
+  schedule:
+    - cron: "0 15 * * 5"
+  workflow_dispatch:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install -g vercel@54.14.1
+      - run: node .github/scripts/weekly-analytics.mjs
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
