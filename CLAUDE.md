@@ -144,7 +144,8 @@ review (on a phone), merge. Commit messages are a short plain description of wha
 - `saved-copy/home-explainer-and-faq.md`: the "Yoga therapy is more than a yoga class"
   explainer + FAQ removed from the home page Sep 11 2026, kept for possible reuse on
   `work-with-me.html`.
-- Optional polish, not urgent: branded 404, analytics. (sitemap.xml, robots.txt, JSON-LD, canonical
+- Vercel Web Analytics is ON (Nov 26 2026): `/_vercel/insights/script.js` in the head of the 5 public pages, deliberately NOT on `client-intake.html`. Add it to any new public page.
+- Optional polish, not urgent: branded 404. (sitemap.xml, robots.txt, JSON-LD, canonical
   tags, and absolute OG images were added in the Jul 2026 SEO pass. `client-intake.html` is deliberately
   NOT in robots.txt: a Disallow line would expose the private URL and block crawlers from seeing its
   noindex. When editing a page, keep its `<link rel="canonical">`/`og:url` and sitemap.xml in sync.)
